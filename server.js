@@ -1,3 +1,50 @@
+const inquirer = require('inquirer');
+const express = require('express');
+const mysql = require('mysql2');
+
+// const PORT = process.env.PORT || 3001;
+// const app = express();
+
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+
+// const db = mysql.createConnection(
+//   {
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'Sql123!',
+//     database: '',
+//   },
+//   console.log(`Connected to the classlist_db database.`)
+//  );
+
+// db.query('', function (err, results) {
+//   console.log(results);
+// });
+
+const startPrompt = [
+  {
+    type: 'list',
+    message: 'Choose a department',
+    name: 'tables',
+    choices: [
+      'View all departments',
+      'View all roles',
+      'View all employees',
+      'Add a department',
+      'Add a role',
+      'Add an employee',
+      'Update an employee role',
+    ],
+  },
+];
+
+function init() {
+  inquirer.prompt(startPrompt).then((answers) => {
+    console.log(answers);
+  });
+}
+init();
 // GIVEN a command-line application that accepts user input
 // WHEN I start the application
 //  todo THEN I am presented with the following options: view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
