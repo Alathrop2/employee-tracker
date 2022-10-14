@@ -1,4 +1,14 @@
 const inquirer = require('inquirer');
+const mysql = require('mysql2');
+// Connect to database
+const db = mysql.createConnection({
+  host: 'localhost',
+  // MySQL username,
+  user: 'root',
+  // MySQL passwords
+  password: 'Sql123!',
+  database: 'departments_db',
+});
 
 const startPrompt = [
   {
@@ -20,6 +30,11 @@ const startPrompt = [
 function init() {
   inquirer.prompt(startPrompt).then((answers) => {
     console.log(answers);
+    if (answers['View all departments'] == 'yes') {
+    }
+    db.query('SELECT * FROM courses', function (err, results) {
+      console.log(results);
+    });
   });
 }
 init();
