@@ -5,7 +5,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'Sql123!',
-  database: 'departments_db',
+  database: 'company_db',
 });
 
 const startPrompt = [
